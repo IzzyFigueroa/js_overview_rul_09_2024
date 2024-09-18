@@ -1,19 +1,27 @@
-const firstName = 'Izzy'
-let age = 18;
+// Arrays are not primitive value types
+// They are called reference types
+const fruits = ['apple', 'orange', 'kiwi', 'grapes'];
+const names = ['Roman', 'Michael', 'Nina', 'Adonis']
+const data = ['Izzy', "Figueroa", 33, '555 coding st', '777-777-7777', ['pickleball', 'fishing']];
 
-// If age is greater than 20 and less than 50, console log 'you are young'
-if (age > 20 && age < 50){
-    console.log('you are young');
- } else if (age >= 50) {
-    console.log('you are getting older');
+console.log(fruits);
 
-} else if (age < 20 && age > 12) {
-    console.log('you are a teenager')
-}else {
-    console.log('your age is not withing our range')
-} 
- 
-// If age is greater than or equal to 50, console log 'you are getting older'
+fruits[2] = 'strawberry';
+
+//Incrse the data age number by one - console.log the original value and the new value after you increase it by one.
+
+console.log(data[2]);
+
+data[2]++;
+
+console.log(data[2]);
 
 
-// If age is less than 20 and greater than 12, console log 'you are a teenager'
+
+let fullName = 'Izzy'
+
+console.log(fullName)
+
+fullName += ' Figueroa'
+
+console.log(fullName)
