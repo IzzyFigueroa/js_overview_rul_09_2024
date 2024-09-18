@@ -1,0 +1,3 @@
+## JS Basics
+
+Console Logging
