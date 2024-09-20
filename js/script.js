@@ -1,47 +1,69 @@
-const userData = {
-    name: 'JD',
-    age: 44,
-    phone: '777-777-7777',
-    address: '555 coding st',
-    info: {
-      location: 'Atlanta area',
-      hobbies: ['pickleball', 'fishing']
-    },
-    printAge: function () {
-      console.log(this.age);
-    },
-    haveBirthday: function () {
-      // Increase the age of the user by one
-      this.age++;
-      // Print 'Happy Birthday' to the console
-      console.log('Happy Birthday!');
-    },
-    addHobby: function (hobby) {
-      // Need to reference an argument that is passed to addHobby (string of a hobby)
-        this.info.hobbies.push(hobby);
-        // console.log(this.info.hobbies);
-      // Push the argument(hobby) to the info.hobbies array
-     },
-    printHobbies: function () {
-    //   // console.log the hobbies array
-        // 
-        console.log(this.info.hobbies);
-       
-      // BONUS - Loop over the hobbies array and console.log each hobby
-      for (let i = 0; i < this.info.hobbies.length; i++) {
-        console.log(this.info.hobbies[1]);
-      }
-    }
+const header = document.querySelector('h1');
+const paragraph = document.querySelector('p:nth-child(2)')
+// console.log(header.innertext);
+// console.log(paragraph.innertext);
+const image = document.querySelector('#main-image');
+const noteOutput = document.querySelector('.output');
+const timerDisplay = document.querySelector('#time');
+const timerBtn = document.querySelector('#start-btn');
+
+header.classList.add('crazy');
+
+header.style.textDecoration = 'underline';
+
+// console.log(document.children[0].children[1].children[0].innertext);
+// image.setAttribute('src', 'https://images.pexels.com/photos/16112572/pexels-photo-16112572/free-photo-of-view-of-sun-shining-between-the-trees-in-a-park.jpeg')
+
+
+// Insert a new article element into the output section
+noteOutput.insertAdjacentHTML('beforeend', `
+  <article>
+    <h3>New note text</h3>
+    <p>Added on: 09/09/2024</p>
+  </article>
+`);
+
+// noteOutput.innerHTML('beforeend', `
+//   <article>
+//     <h3>New note text</h3>
+//     <p>Added on: 09/09/2024</p>
+//   </article>
+// `);
+
+// Timers This below is called a call back function. We're passing in a Call back
+// setTimeout(function () {
+//   console.log('time up!'); 
+// }, 3000);
+let count = 10;
+let started = false;
+
+// const timer = setInterval(function (){
+//   count--;
+//   console.log(count);
+
+//   if (count <= 0){
+//     clearInterval(timer)
+//   }
+// }, 1000);
+
+//load into browser
+
+timerBtn.addEventListener('click', function() {
+  if (!started) {
+    const timer = setInterval(function () {
+      count--;
     
-  };
-  console.log(userData.age);
-  userData.addHobby('basketball');
+      timerDisplay.innerText  = 'Time: ' + count;
+    
+        if (count <= 0){
+          clearInterval(timer);
 
-  userData.printHobbies();
+          timerDisplay.innerText = 'Time: 10';
+          count = 10;
+          started = false;
+        }
+      }, 300);
 
-  // function test(num, word) {
-  //   console.log(num);
-  // }
-
-  // test(1, 'help');
-
+      started = true;
+  }
+});
